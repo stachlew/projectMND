@@ -19,5 +19,5 @@ public class Restrictions {
     String sign;
 
     @ManyToOne
-    Order order;
+    PurchaseOrder order;
 }

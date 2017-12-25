@@ -18,7 +18,7 @@ public class Result {
     Integer quantity;
 
     @ManyToOne
-    Order order;
+    PurchaseOrder order;
 
 
 }
