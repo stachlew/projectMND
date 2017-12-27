@@ -24,6 +24,43 @@ public class PurchaseOrder {
     @ManyToOne
     OrderStatus orderStatus;
 
+    public Long getId() {
+        return id;
+    }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
 
+    public AplicationUser getAplicationUser() {
+        return aplicationUser;
+    }
+
+    public void setAplicationUser(AplicationUser aplicationUser) {
+        this.aplicationUser = aplicationUser;
+    }
+
+    public Double getMaxCost() {
+        return maxCost;
+    }
+
+    public void setMaxCost(Double maxCost) {
+        this.maxCost = maxCost;
+    }
+
+    public List<Result> getResultList() {
+        return resultList;
+    }
+
+    public void setResultList(List<Result> resultList) {
+        this.resultList = resultList;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 }

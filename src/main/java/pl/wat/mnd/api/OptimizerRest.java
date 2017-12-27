@@ -1,10 +1,7 @@
 package pl.wat.mnd.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.wat.mnd.logic.OptimizerService;
 
 @RestController
@@ -17,5 +14,11 @@ public class OptimizerRest {
     @GetMapping("/test")
     @ResponseBody public String test(){
         return "OPTYMALIZATOR REST DZIAŁA";
+    }
+
+    @GetMapping("/run")
+    public void run(@RequestParam int id){
+        System.out.println("Uruchomiono proces o id:" +id);
+        optimizerService.optymalizeOrder(id);
     }
 }

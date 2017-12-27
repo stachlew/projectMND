@@ -18,6 +18,9 @@ public class Restrictions {
     @Column
     String sign;
 
+    @Column
+    Integer value;
+
     @ManyToOne
     PurchaseOrder order;
 }

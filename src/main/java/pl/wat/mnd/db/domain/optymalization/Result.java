@@ -20,5 +20,12 @@ public class Result {
     @ManyToOne
     PurchaseOrder order;
 
+    public Result() {
+    }
 
+    public Result(Product product, Integer quantity, PurchaseOrder order) {
+        this.product = product;
+        this.quantity = quantity;
+        this.order = order;
+    }
 }
