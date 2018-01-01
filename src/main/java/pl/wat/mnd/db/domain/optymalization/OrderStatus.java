@@ -7,8 +7,8 @@ public class OrderStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_STATUS_SEQ")
     @SequenceGenerator(sequenceName = "ORDER_STATUS_SEQ", initialValue = 1, allocationSize = 1, name = "ORDER_STATUS_SEQ")
-    Long id;
+    public Long id;
 
     @Column
-    String description;
+    public String description;
 }

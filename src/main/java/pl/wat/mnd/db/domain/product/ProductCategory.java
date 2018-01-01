@@ -8,10 +8,10 @@ public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CAT_PROD_SEQ")
     @SequenceGenerator(sequenceName = "CAT_PROD_SEQ", initialValue = 1, allocationSize = 1, name = "CAT_PROD_SEQ")
-    Long id;
+    public Long id;
 
     @Column
-    String name;
+    public String name;
 
 
 }

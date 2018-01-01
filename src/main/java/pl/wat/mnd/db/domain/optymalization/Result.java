@@ -9,16 +9,16 @@ public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RESULT_SEQ")
     @SequenceGenerator(sequenceName = "RESULT_SEQ", initialValue = 1, allocationSize = 1, name = "RESULT_SEQ")
-    Long id;
+    public Long id;
 
     @ManyToOne
-    Product product;
+    public Product product;
 
     @Column
-    Integer quantity;
+    public Integer quantity;
 
     @ManyToOne
-    PurchaseOrder order;
+    public PurchaseOrder order;
 
     public Result() {
     }

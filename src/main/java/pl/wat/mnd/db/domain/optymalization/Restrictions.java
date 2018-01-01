@@ -9,18 +9,18 @@ public class Restrictions {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "RESTRICTION_SEQ")
     @SequenceGenerator(sequenceName = "RESTRICTION_SEQ", initialValue = 1, allocationSize = 1, name = "RESTRICTION_SEQ")
-    Long id;
+    public Long id;
 
     @ManyToOne
-    ProductCategory productCategory;
+    public ProductCategory productCategory;
 
     // >, >= , = , < , <=
     @Column
-    String sign;
+    public String sign;
 
     @Column
-    Integer value;
+    public Integer value;
 
     @ManyToOne
-    PurchaseOrder order;
+    public PurchaseOrder order;
 }

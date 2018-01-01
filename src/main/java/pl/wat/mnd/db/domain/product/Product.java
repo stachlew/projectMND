@@ -8,18 +8,20 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PROD_SEQ")
     @SequenceGenerator(sequenceName = "PROD_SEQ", initialValue = 1, allocationSize = 1, name = "PROD_SEQ")
-    Long id;
+    public Long id;
 
     @Column
-    String name;
+    public String name;
 
     @Column
-    Double price;
+    public Double price;
 
     @Column
-    Double kcalories;
+    public Double kcalories;
 
     @ManyToOne
-    ProductCategory productCategory;
+    public ProductCategory productCategory;
+
+
 
 }

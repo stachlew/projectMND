@@ -10,19 +10,19 @@ public class PurchaseOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ORDER_SEQ")
     @SequenceGenerator(sequenceName = "ORDER_SEQ", initialValue = 1, allocationSize = 1, name = "ORDER_SEQ")
-    Long id;
+    public Long id;
 
     @ManyToOne
-    AplicationUser aplicationUser;
+    public AplicationUser aplicationUser;
 
     @Column
-    Double maxCost;
+    public Double maxCost;
 
     @OneToMany(mappedBy = "order")
-    List<Result> resultList;
+    public List<Result> resultList;
 
     @ManyToOne
-    OrderStatus orderStatus;
+    public OrderStatus orderStatus;
 
     public Long getId() {
         return id;

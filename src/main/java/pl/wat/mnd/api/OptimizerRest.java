@@ -11,9 +11,11 @@ public class OptimizerRest {
     @Autowired
     private OptimizerService optimizerService;
 
-    @GetMapping("/test")
-    @ResponseBody public String test(){
-        return "OPTYMALIZATOR REST DZIAŁA";
+    @GetMapping("/test/{id}")
+    @ResponseBody public String test(@PathVariable("id") int id){
+        System.out.println("Uruchomiono proces o id:" +id);
+        optimizerService.optymalizeOrder(id);
+        return "OK FOR ORDER_ID:"+id;
     }
 
     @GetMapping("/run")
