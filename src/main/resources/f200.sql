@@ -27,7 +27,7 @@ prompt APPLICATION 200 - MND - MC DONALD
 -- Application Export:
 --   Application:     200
 --   Name:            MND - MC DONALD
---   Date and Time:   16:03 Wednesday December 27, 2017
+--   Date and Time:   22:31 Tuesday January 2, 2018
 --   Exported By:     ADMIN
 --   Flashback:       0
 --   Export Type:     Application Export
@@ -111,7 +111,7 @@ wwv_flow_api.create_flow(
 ,p_rejoin_existing_sessions=>'N'
 ,p_csv_encoding=>'Y'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20171227155905'
+,p_last_upd_yyyymmddhh24miss=>'20180102222859'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>2
 ,p_ui_type_name => null
@@ -351,12 +351,6 @@ wwv_flow_api.create_list_of_values(
 ,p_lov_query=>'.'||wwv_flow_api.id(5678754385819894)||'.'
 );
 wwv_flow_api.create_static_lov_data(
- p_id=>wwv_flow_api.id(5679034822819896)
-,p_lov_disp_sequence=>1
-,p_lov_disp_value=>'>'
-,p_lov_return_value=>'>'
-);
-wwv_flow_api.create_static_lov_data(
  p_id=>wwv_flow_api.id(5679483603819896)
 ,p_lov_disp_sequence=>2
 ,p_lov_disp_value=>'>='
@@ -373,12 +367,6 @@ wwv_flow_api.create_static_lov_data(
 ,p_lov_disp_sequence=>4
 ,p_lov_disp_value=>'<='
 ,p_lov_return_value=>'<='
-);
-wwv_flow_api.create_static_lov_data(
- p_id=>wwv_flow_api.id(5680655479819897)
-,p_lov_disp_sequence=>5
-,p_lov_disp_value=>'<'
-,p_lov_return_value=>'<'
 );
 end;
 /
@@ -18842,7 +18830,7 @@ wwv_flow_api.create_page(
 ,p_page_is_public_y_n=>'N'
 ,p_cache_mode=>'NOCACHE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20171226201049'
+,p_last_upd_yyyymmddhh24miss=>'20180102222700'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(10993781555163053)
@@ -18870,7 +18858,7 @@ wwv_flow_api.create_page_plug(
 ,p_plug_display_point=>'BODY'
 ,p_plug_source=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'W pliku należy umieścić specyfikacje produktów oddzieloną przecinkami.</br></br>',
-'Nazwa , Cena , Kaloryczność (kcal) , Id Kategorii'))
+'Nazwa , Cena (grosze) , Kaloryczność (kcal) , Id Kategorii'))
 ,p_plug_query_row_template=>1
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
@@ -18918,7 +18906,7 @@ wwv_flow_api.create_page_plug(
 '    p.id column_link',
 '    ,p.name',
 '    ,p.kcalories',
-'    ,p.price',
+'    ,to_char((p.price/100),''9999990D99'') price',
 '    ,p.product_category_id',
 '    ,pc.name category_name',
 'from ',
@@ -18999,15 +18987,6 @@ wwv_flow_api.create_worksheet_column(
 ,p_column_alignment=>'RIGHT'
 );
 wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(5497134956875915)
-,p_db_column_name=>'PRICE'
-,p_display_order=>50
-,p_column_identifier=>'E'
-,p_column_label=>'Cena'
-,p_column_type=>'NUMBER'
-,p_column_alignment=>'RIGHT'
-);
-wwv_flow_api.create_worksheet_column(
  p_id=>wwv_flow_api.id(5497210091875916)
 ,p_db_column_name=>'PRODUCT_CATEGORY_ID'
 ,p_display_order=>60
@@ -19024,6 +19003,15 @@ wwv_flow_api.create_worksheet_column(
 ,p_column_label=>'Nazwa Kategorii Produktu'
 ,p_column_type=>'STRING'
 );
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5771295734331032)
+,p_db_column_name=>'PRICE'
+,p_display_order=>80
+,p_column_identifier=>'M'
+,p_column_label=>'Cena'
+,p_column_type=>'STRING'
+,p_column_alignment=>'CENTER'
+);
 wwv_flow_api.create_worksheet_rpt(
  p_id=>wwv_flow_api.id(11029755719543019)
 ,p_application_user=>'APXWS_DEFAULT'
@@ -19032,7 +19020,7 @@ wwv_flow_api.create_worksheet_rpt(
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
 ,p_display_rows=>50
-,p_report_columns=>'COLUMN_LINK:NAME::KCALORIES:PRICE:PRODUCT_CATEGORY_ID:CATEGORY_NAME'
+,p_report_columns=>'COLUMN_LINK:NAME:KCALORIES:PRODUCT_CATEGORY_ID:CATEGORY_NAME::PRICE'
 ,p_flashback_enabled=>'N'
 );
 wwv_flow_api.create_page_button(
@@ -19121,7 +19109,7 @@ wwv_flow_api.create_page(
 ,p_page_is_public_y_n=>'N'
 ,p_cache_mode=>'NOCACHE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20171226200328'
+,p_last_upd_yyyymmddhh24miss=>'20180102215431'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(11005676331206047)
@@ -19225,7 +19213,7 @@ wwv_flow_api.create_page_item(
 ,p_name=>'P7_PRICE'
 ,p_item_sequence=>30
 ,p_item_plug_id=>wwv_flow_api.id(11005676331206047)
-,p_prompt=>'Cena'
+,p_prompt=>'Cena (grosze)'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>30
 ,p_field_template=>wwv_flow_api.id(5122851881934583)
@@ -20590,7 +20578,7 @@ wwv_flow_api.create_page(
 ,p_page_is_public_y_n=>'N'
 ,p_cache_mode=>'NOCACHE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20171227093600'
+,p_last_upd_yyyymmddhh24miss=>'20180102215632'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(16743078216529405)
@@ -20739,7 +20727,7 @@ wwv_flow_api.create_page(
 ,p_page_is_public_y_n=>'N'
 ,p_cache_mode=>'NOCACHE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20171227155820'
+,p_last_upd_yyyymmddhh24miss=>'20180102221126'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(22354585279677280)
@@ -20796,7 +20784,9 @@ wwv_flow_api.create_page_plug(
 '  end as  RUN,',
 '  ',
 '  case',
-'     when description =''GOTOWY'' or description= ''PO ZMIANIE'' THEN ''<a href="'' || APEX_UTIL.PREPARE_URL(''f?p=&APP_ID.:16:&APP_SESSION.:RUN:::P16_ORDER_ID:''||purchase_order.id) || ''" title="Zobacz wynik" ><i class="fa fa-refresh rerun"></i></a>''',
+'    when (description =''GOTOWY'' or description= ''PO ZMIANIE'') and count(rt.id)> 0 THEN ''<a href="'' || APEX_UTIL.PREPARE_URL(''f?p=&APP_ID.:16:&APP_SESSION.:RUN:::P16_ORDER_ID:''||purchase_order.id) || ''" title="Zobacz wynik" ><i class="fa fa-eye rerun"'
+||'></i></a>''',
+'   when (description =''GOTOWY'' or description= ''PO ZMIANIE'') and count(rt.id) =0 THEN ''BRAK ROZWIĄZANIA''',
 '  else null',
 '  end as  result',
 'FROM',
@@ -20804,6 +20794,7 @@ wwv_flow_api.create_page_plug(
 '    join order_status on order_status.id =purchase_order.order_status_id',
 '    join APLICATION_USER on APLICATION_USER.id = purchase_order.aplication_user_id',
 '    left join restrictions r on r.order_id =   purchase_order.id',
+'    left join result rt on rt.order_id = purchase_order.id',
 '    ',
 '    GROUP BY ',
 '      purchase_order.id,',
@@ -21193,7 +21184,7 @@ wwv_flow_api.create_page(
 ,p_page_is_public_y_n=>'N'
 ,p_cache_mode=>'NOCACHE'
 ,p_last_updated_by=>'ADMIN'
-,p_last_upd_yyyymmddhh24miss=>'20171227151152'
+,p_last_upd_yyyymmddhh24miss=>'20180102222859'
 );
 wwv_flow_api.create_page_plug(
  p_id=>wwv_flow_api.id(22507566434543464)
@@ -21226,7 +21217,7 @@ wwv_flow_api.create_page_plug(
 '    product_id,',
 '    p.name product_name,',
 '    pc.name category_name,',
-'    p.price,',
+'    to_char((p.price/100),''9999990D99'') price,',
 '    p.kcalories',
 'FROM',
 '    result r',
@@ -21243,7 +21234,7 @@ wwv_flow_api.create_page_plug(
 '    null,',
 '    null,',
 '    null,',
-'    sum(p.price*quantity) price,',
+'    to_char((sum((p.price/100)*quantity)),''9999990D99'') price,',
 '    sum(p.kcalories*quantity) kcalories',
 '    from',
 '     result r',
@@ -21357,15 +21348,6 @@ wwv_flow_api.create_worksheet_column(
 ,p_column_type=>'STRING'
 );
 wwv_flow_api.create_worksheet_column(
- p_id=>wwv_flow_api.id(5770205327331022)
-,p_db_column_name=>'PRICE'
-,p_display_order=>100
-,p_column_identifier=>'M'
-,p_column_label=>'Cena'
-,p_column_type=>'NUMBER'
-,p_column_alignment=>'RIGHT'
-);
-wwv_flow_api.create_worksheet_column(
  p_id=>wwv_flow_api.id(5770394891331023)
 ,p_db_column_name=>'KCALORIES'
 ,p_display_order=>110
@@ -21373,6 +21355,15 @@ wwv_flow_api.create_worksheet_column(
 ,p_column_label=>'Kaloryczność'
 ,p_column_type=>'NUMBER'
 ,p_column_alignment=>'RIGHT'
+);
+wwv_flow_api.create_worksheet_column(
+ p_id=>wwv_flow_api.id(5771168342331031)
+,p_db_column_name=>'PRICE'
+,p_display_order=>120
+,p_column_identifier=>'O'
+,p_column_label=>'Cena'
+,p_column_type=>'STRING'
+,p_column_alignment=>'CENTER'
 );
 wwv_flow_api.create_worksheet_rpt(
  p_id=>wwv_flow_api.id(17136276575429079)

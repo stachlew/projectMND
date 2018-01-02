@@ -1,0 +1,22 @@
+DECLARE
+  --l_principal VARCHAR2(20) := 'APEX_040200';
+  --l_principal VARCHAR2(20) := 'APEX_050000';
+  l_principal VARCHAR2(20) := 'APEX_050100';
+BEGIN
+  DBMS_NETWORK_ACL_ADMIN.create_acl (
+    acl          => 'acl_apex.xml',
+    description  => 'ACL',
+    principal    => l_principal,
+    is_grant     => TRUE,
+    privilege    => 'connect',
+    start_date   => null,
+    end_date     => NULL);
+
+  DBMS_NETWORK_ACL_ADMIN.assign_acl (
+    acl         => 'acl_apex.xml',
+    host        => 'localhost',
+    lower_port  => 8090,
+    upper_port  => 8090);
+
+  COMMIT;
+END;
